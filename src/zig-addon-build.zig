@@ -58,10 +58,6 @@ pub fn nativeAddonBuild(build: *std.Build, option: std.Build.SharedLibraryOption
     arm.linkSystemLibrary("ace_napi.z");
     x64.linkSystemLibrary("ace_napi.z");
 
-    arm64.linkage = .dynamic;
-    arm.linkage = .dynamic;
-    x64.linkage = .dynamic;
-
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer arena.deinit();
     const allocator = arena.allocator();
